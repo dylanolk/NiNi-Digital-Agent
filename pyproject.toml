@@ -1,0 +1,31 @@
+[project]
+name = "office-technology-agent"
+version = "0.1.0"
+description = "MCP tools for office technology catalog, manual retrieval, and BOM generation"
+requires-python = ">=3.12"
+dependencies = [
+  "alembic>=1.13",
+  "mcp>=1.0",
+  "openpyxl>=3.1",
+  "PyJWT[crypto]>=2.10",
+  "pydantic>=2.7",
+  "pydantic-settings>=2.2",
+  "pymupdf>=1.24",
+  "pgvector>=0.3",
+  "psycopg[binary]>=3.2",
+  "sqlalchemy>=2.0",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=8", "pytest-asyncio>=0.23"]
+embeddings = ["sentence-transformers>=3.0"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+asyncio_mode = "auto"
+
+[tool.ruff]
+line-length = 100
+
+[tool.alembic]
+script_location = "migrations"
